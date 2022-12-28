@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split user</title>
+</head>
+<style>
+   button {
+    width: 17%;
+    padding: 3px;
+    background-color: black;
+    color: white;
+}
+
+.footer-end {
+    width: 100%;
+    height: 25px;
+    margin: auto;
+    background: transparent;
+    padding: 4px 40px 25px 5px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    text-align: center;
+}
+.footer-end p{
+	font-family: 'Roboto Slab', serif;
+	font-size: 16px;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	letter-spacing: 2px;
+
+}
+.footer-end a{
+
+text-decoration: none;
+color: rgb(0, 0, 0)
+}
+.footer-end a:hover{
+	color:  #2bff00;
+}
+.footer-end{  
+    position: fixed;  
+    bottom: 0;  
+    z-index: 100;  
+}
+ 
+</style>
+<body>
+  
+      
+
+ <center> <h1>split user</h1>
+<textarea name="" id="textarea" cols="60" rows="50" placeholder="user@gmail.com" ></textarea>  
+<textarea name="" id="textarea2" cols="60" rows="50" placeholder="user" ></textarea>  
+<textarea name="" id="textarea3" cols="60" rows="50" placeholder="@xxxx.com" ></textarea> 
+
+
+<br> <button onclick="splitfunction()">split</button>
+
+
+
+<div class="footer-end">
+  <p> By: <a href="https://t.me/belkhnati_zakariae">@zakichan</a></p>
+</div>
+ </center>
+
+
+
+  
+<script>
+function copy(){
+   var input = document.getElementById('textarea').value;
+   navigator.clipboard.writeText(input);
+     alert("result copy");
+
+}
+
+function splitfunction(){
+    
+var input = document.getElementById('textarea').value;
+var lines = input.split('\n');
+var listuser ="";
+var listasp ="";
+var email ="";
+var username ="" ;
+var asp ="" ;
+
+var l ="";
+var d ="";
+
+for (let i = 0; i < lines.length; i++) {
+ username = lines[i].split('@')[0] ;
+  asp = lines[i].split('@')[1] ;
+
+ if(i==lines.length-1){  
+    
+ 
+   listuser+=username;
+ listasp+=asp;
+}
+   else{
+
+     
+    listuser+=username+"\n";
+    listasp+=asp+"\n";
+   }
+
+
+
+   
+   
+ 
+
+ 
+
+}
+
+document.getElementById('textarea2').value=listuser;
+document.getElementById('textarea3').value=listasp;
+ 
+}
+
+</script>
+</body>
+</html>
